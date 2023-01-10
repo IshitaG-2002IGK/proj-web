@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/*Variables*/
+:root {
+  --main-color: #721736;
+  --second-color: #ccb9bc;
+  --details: #f08080;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/*Navbar*/
+.navbar-brand {
+  font-size: 28px;
+}
+
+.nav-link {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  color: #fff !important;
+}
+
+.navbar-toggler {
+  outline: none !important;
+}
+
+.bg-black {
+  background-color: var(--main-color);
+}
+
+.carousel-item {
+  height: 600px;
+}
+
+.carousel-image-1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url(https://github.com/Miriali/NurseryWebsite/blob/master/img/main-1.jpg?raw=true);
+  background-size: cover;
+}
+
+.carousel-image-2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url(https://github.com/Miriali/NurseryWebsite/blob/master/img/main-2.jpg?raw=true);
+  background-size: cover;
+}
+
+.carousel-image-3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url(https://github.com/Miriali/NurseryWebsite/blob/master/img/main-3.jpg?raw=true);
+  background-size: cover;
+}
+
+.title-color {
+  color: #fff;
+}
+
+.btn-color {
+  background: var(--details);
+  color: #fff;
+}
+
+.btn-color:hover {
+  color: #111;
+  transition: 0.4s;
+}
+
+@keyframes slide-btn {
+  16% {
+    transform: translateY(8px);
+  }
+  33% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  65% {
+    transform: translateY(-2px);
+  }
+  85% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.slide-btn:hover,
+.slide-btn:focus,
+.slide-btn:active {
+  animation-name: slide-btn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+/*About*/
+.fab {
+  color: #daa520;
+  font-size: 3rem;
+  padding: 0.8rem;
+  transition: 0.5s;
+}
+
+.fab:hover {
+  transform: translateY(-10px);
+}
+
+/*Products*/
+#products {
+  background-color: #111;
+}
+
+.product-title {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.single-item {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 1px 5px #fff, 0 1px 1px #fff;
+  position: relative;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  cursor: pointer;
+}
+
+.single-item:hover,
+.single-item:focus,
+.single-item:active {
+  transform: translateY(-5px);
+}
+
+.single-item:hover:before,
+.single-item:focus:hover,
+.single-item:active:before {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.img-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.img-fruts {
+  height: 231px;
+}
+
+.img-container:before {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px #111;
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+}
+
+.img-container:hover,
+.product-img:focus,
+.product-img:active {
+  box-shadow: -1px 0px 4px 1px rgba(247, 243, 243, 0.9);
+  transform: scale(1.1);
+}
+
+span {
+  color: var(--details);
+  font-weight: 700;
+}
+
+/*Blog*/
+#blog-sec {
+  margin-top: 25px;
+}
+
+.text-color {
+  color: #000;
+}
+
+.flower-about {
+  margin-top: 35px;
+  animation-name: imgLeft;
+  animation-duration: 3s;
+}
+
+.about-text {
+  animation-name: textRight;
+  animation-duration: 3s;
+}
+
+@keyframes imgLeft {
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textRight {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*Best Seller*/
+.seller {
+  background-color: #111;
+  color: #fff;
+  margin-top: 30px;
+  box-shadow: 0 1px 5px #fff, 0 1px 1px #fff;
+}
+
+.img-top {
+  margin-top: 10px;
+}
+
+.seller-item {
+  text-align: right;
+  font-size: 20px;
+}
+
+.seller-item p {
+  position: absolute;
+  right: 30px;
+  left: 30px;
+  padding: 10px 0;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.35s, transform 0.35s;
+  bottom: 30px;
+  line-height: 1.5;
+  transform: translate3d(0, 100%, 0);
+}
+
+.seller-item:hover p {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.photo {
+  height: 800px;
+}
+
+.seller-img {
+  height: 380px;
+  width: 100%;
+  margin-bottom: 1px;
+}
+
+/*Contact*/
+@keyframes cont-btn {
+  16% {
+    transform: translateY(8px);
+  }
+  33% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  65% {
+    transform: translateY(-2px);
+  }
+  85% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.cont-btn:hover,
+.cont-btn:focus,
+.cont-btn:active {
+  animation-name: slide-btn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+/*Footer*/
+.social-section {
+  background-color: #111;
+  color: #fff;
+}
+
+.social-icon {
+  transition: transform 0.4s ease-out;
+  padding: 0.8rem;
+}
+
+.social-icon:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+/*Media*/
+@media (min-width: 768px) {
+  .flower-about {
+    margin-bottom: 35px;
+  }
+
+  .product-title {
+    margin-bottom: 35px;
+  }
+
+  .seller-item {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 425px) {
+  .flower-about {
+    margin-bottom: 35px;
+  }
+
+  .photo,
+  .seller-img {
+    margin-bottom: 20px;
+  }
+
+  .social-icon {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 375px) {
+  .flower-about {
+    margin-bottom: 30px;
+  }
+
+  .photo,
+  .seller-img {
+    margin-bottom: 20px;
+  }
+
+  .social-icon {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 320px) {
+  .flower-about {
+    margin-bottom: 30px;
+  }
+
+  .photo,
+  .seller-img {
+    margin-bottom: 20px;
+  }
+
+  .social-icon {
+    font-size: 30px;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-black">
+        <div class="container">
+            <a href="#" class="navbar-brand">PhilGreen</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>            
+                
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">   
+                        <a href="#main" class="nav-link">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">Products</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#best-seller" class="nav-link">Best Seller</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#main" class="nav-link">
+                            <i class="fas fa-shopping-cart fa-1x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Slider-->
+    <section id="main">
+        <div id="Carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#Carousel" data-slide-to="1"></li>
+                <li data-target="#Carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner img-fluid">
+                <div class="carousel-item carousel-image-1 active">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                            <h1 class="display-3 title-color">Title One</h1>
+                            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sit!</p>
+                            <a href="#" class="btn btn-color slide-btn btn-lg">
+                                Sing Up Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-image-2">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                            <h1 class="display-3 title-color">Title Two</h1>
+                            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sit!</p>
+                            <a href="#" class="btn btn-color slide-btn btn-lg">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-image-3">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                            <h1 class="display-3 title-color">Title Three</h1>
+                            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sit!</p>
+                            <a href="#" class="btn btn-color slide-btn btn-lg">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#Carousel" data-slide="prev" class="carousel-control-prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+
+                <a href="#Carousel" data-slide="next" class="carousel-control-next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--About-->
+    <section class="services py-5 text-center" id="about">
+        <div class="container">
+            <div class="col-10 mx-auto text-lg-center text-center text-color">
+                <h2><b>We are a reference in the market for<b></h2><br>
+            </div>
+            <div class="row">
+                <!--Single service-->
+                <div class="col-10 mx-auto col-md-6 col-lg-4 my-3">
+                    <span class="service-icon">
+                        <i class="fab fa-pagelines fa-3x"></i>
+                    </span>
+                    <h5 class="font-weight-bold text-uppercase">
+                         Flowers and Trees
+                    </h5>
+                    <p class="text-capitalize">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, dolorum.</p>
+                </div>
+
+                <div class="col-10 mx-auto col-md-6 col-lg-4 my-3">
+                    <span class="service-icon">
+                        <i class="fas fa-tree fa-3x fab"></i>
+                    </span>
+                    <h5 class="font-weight-bold text-uppercase">
+                        Garden items
+                    </h5>
+                    <p class="text-capitalize">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, dolorum.</p>
+                </div>
+
+                <div class="col-10 mx-auto col-md-6 col-lg-4 my-3">
+                    <span class="service-icon">
+                        <i class="fas fa-leaf fa-3x fab"></i>
+                    </span>
+                    <h5 class="font-weight-bold text-uppercase">
+                        Best quality pots
+                    </h5>
+                    <p class="text-capitalize">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, dolorum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Featured Products-->
+    <section class="products py-5" id="products">
+        <div class="container">
+            <!--Section title-->
+            <div class="row">
+                <div class="col-10 mx-auto col-sm-6 text-center">
+                    <h1 class="text-capitalize product-title">
+                        Our Products
+                    </h1>
+                </div>
+            </div>
+            <!--Products-->
+            <div class="row product-items" id="product-items">
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-1.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Ornamental Plants</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-2.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img img-fruts">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Fruit Plants</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-3.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Aquatic Plants</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-4.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Medicinal Plants</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-5.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img img-fruts">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Trees</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-6.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img img-fruts">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Pots</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-7.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Gardening products</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-8.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Grass Tepes</h5> 
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Single Items-->
+                <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/body-9.jpg?raw=true" alt="Planta Ornamental" class="card-img-top product-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="item-name">Garden Decoration</h5>
+                                <span><i class="fas fa-dollar-sign"></i>350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!--Blog-->
+    <section id="blog-sec">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center">
+                    <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/blog-2.jpg?raw=true" alt="primer plano de flores" width="450" height="150" class="img-fluid flower-about">
+                </div>
+                <div class="col-lg-7 text-lg-right text-center text-color about-text">
+                    <h2><em>" To forget how to dig the earth and to tend the soil is to forget ourselves."</em></h2>
+                    <p class="text-center">Mahatma Gandhi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Best Seller-->
+    <section class="seller py-5" id="best-seller">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto col-sm-6 text-center">
+                    <h1 class="text-capitalize product-title">
+                        Best Seller Products
+                    </h1>
+                </div>
+            </div>
+            <!--Row-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="seller-item">
+                        <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/best-1.jpg?raw=true" alt="" class="img-fluid photo">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 d-flex flex-column justify-content-between">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="seller-item">
+                                <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/best-2.jpg?raw=true" alt="" class="img-fluid seller-img">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="seller-item">
+                                <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/best-3.jpg?raw=true" alt="" class="img-fluid seller-img">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="seller-item">
+                                <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/best-4.jpg?raw=true" alt="" class="img-fluid seller-img">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="seller-item">
+                                <img src="https://github.com/Miriali/NurseryWebsite/blob/master/img/best-5.jpg?raw=true" alt="" class="img-fluid seller-img">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contact-->
+    <section class="contact py-5" id="contact">
+        <div class="container">
+            <h2 class="section-heading text-center">Contact Us</h2>
+            <form action="" class="col-lg-6 offset-lg-3">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="text" class="form-control" placeholder="Enter your name here">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea rows="5" class="form-control" id="message" placeholder="Message"></textarea>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="check">
+                    <label class="form-check-label" for="check">
+                        Subscribe to news letter
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-lg btn-color cont-btn">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!--Social-->
+    <section class="social-section mt-5">
+        <div class="text-center py-5">
+            <h2 class="py-3">Follow Us</h2>
+            <i class="fab fa-facebook fa-3x social-icon"></i>
+            <i class="fab fa-twitter fa-3x social-icon"></i>
+            <i class="fab fa-instagram fa-3x social-icon"></i>
+            <i class="fab fa-linkedin fa-3x social-icon"></i>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer class="text-center">
+		<p>PhilGreen | <i class="far fa-copyright"></i> 2020 All rights reserved</p>
+	</footer>
+</body>
+</html>
