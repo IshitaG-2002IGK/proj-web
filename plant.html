@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+  position: relative;
+  width: 450px;
+  height: 645px;
+  display: flex;
+  background: #b2cebb;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 7px 25px rgba(140, 140, 140, 0.2);
+  transition: 0.3s all ease;
+}
+#app .plants {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: inherit;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0px 7px 25px rgba(140, 140, 140, 0.2);
+}
+#app .plants .plant {
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 20px;
+  transition: 0.3s all ease;
+  padding: 10px;
+  margin: 20px 0;
+}
+#app .plants .plant:hover {
+  box-shadow: 0px 7px 15px rgba(140, 140, 140, 0.2);
+}
+#app .plants .plant:hover img {
+  transform: rotate(25deg) scale(1.45);
+}
+#app .plants .plant img {
+  width: 100px;
+  height: auto;
+  border-radius: 20px;
+  transition: 0.3s all ease;
+}
+#app .plants .plant .description {
+  width: 180px;
+  padding-left: 25px;
+}
+#app .plants .plant .description h4 {
+  margin-top: 5px;
+}
+#app .plants .plant .description p {
+  color: #8c8c8c;
+}
+#app .plants .plant .description .price {
+  font-weight: 600;
+}
+#app .plants .plant .quantity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 35px;
+  padding: 0 20px;
+  font-size: 18px;
+  background: rgba(178, 206, 187, 0.3);
+  border-radius: 20px;
+}
+#app .plants .plant .quantity .btn {
+  border: none;
+  background: none;
+  color: #8c8c8c;
+  transition: 0.3s all ease;
+  cursor: pointer;
+}
+#app .plants .plant .quantity .btn:hover {
+  transform: scale(1.45);
+}
+#app .plants .plant .quantity .number {
+  font-weight: 600;
+  -webkit-animation: scale 0.3s ease;
+          animation: scale 0.3s ease;
+}
+#app .checkout {
+  position: absolute;
+  top: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#app .checkout .total {
+  font-weight: 900;
+  display: flex;
+  align-items: flex-end;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+#app .checkout .total span {
+  font-size: 24px;
+  margin-left: 9px;
+}
+#app .checkout button {
+  font-size: 18px;
+  background: #f9a100;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 100px;
+  border: none;
+  border-radius: 20px;
+  transition: 0.3s all ease;
+  cursor: pointer;
+}
+#app .checkout button:hover {
+  box-shadow: 0px 7px 25px rgba(140, 140, 140, 0.2);
+}
+#app .checkout button:disabled {
+  background-color: #8c8c8c;
+  cursor: not-allowed;
+}
+#app .cart-checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 480px;
+  margin-top: 20px;
+}
+#app .cart-checkout .cart-plants {
+  display: flex;
+  height: 300px;
+}
+#app .cart-checkout p {
+  font-size: 34px;
+  font-weight: 600;
+  text-align: center;
+  width: 240px;
+}
+
+*:focus {
+  outline-color: #f9a100;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #424242;
+  background-image: linear-gradient(to right top, #fff, #c8e6c9);
+}
+
+.fade-up-leave-active {
+  transition: 0.6s all ease;
+}
+
+.fade-up-leave {
+  transform: translateY(0);
+}
+
+.fade-up-enter, .fade-up-leave-to {
+  transform: translateY(-500px);
+}
+
+.scale-enter-active {
+  transition: 0.3s all ease;
+}
+
+.scale-leave-active {
+  transition: 0.3s all ease;
+}
+
+.scale-enter, .scale-leave-to {
+  transform: scale(1.2);
+}
+
+.opacity-leave-active {
+  transition: 0.3s all ease;
+}
+
+.opacity-enter, .opacity-leave-to {
+  transform: translateY(60px);
+  opacity: 0;
+}
+
+.plants-group-leave-active {
+  transition: 0.3s all ease;
+}
+
+.plants-group-enter, .plants-group-leave-to {
+  transform: translateX(200px);
+  opacity: 0;
+}
+
+.order-group-enter-active {
+  transition: 2s all ease;
+}
+
+.order-group-enter, .order-group-leave-to {
+  transform: translateX(-300px);
+  opacity: 0;
+}
+
+.fa-instagram {
+  position: absolute;
+  color: #b2cebb;
+  top: 3%;
+  right: 2%;
+  font-size: 38px;
+}
+
+.fa-instagram:hover {
+  font-size: 42px;
+  color: #f9a100;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+<div id="app">
+  <div v-if="!plants.length" class="cart-checkout">
+    <p>Cart is empty.</p>
+  </div>
+  <div v-if="checkout" class="cart-checkout">
+    <p>Thank you for your order!</p>
+    <transition-group  name="order-group" tag="div" class="cart-plants" appear>
+      <img  v-for="plant in plants"
+           @click="checkoutCart"
+           :key="plant.id" 
+           :src="plant.img" 
+           :alt="plant.name"/>
+    </transition-group>
+  </div>
+  <transition v-else name="fade-up" >
+    <transition-group  name="plants-group" tag="div" class="plants">
+      <div class="plant" v-for="plant in plants" :key="plant.id">
+          <img :src="plant.img" :alt="plant.name"/>
+          <div class="description">
+            <h4>{{plant.name}}</h3>
+            <p>Succulent</p>
+            <transition name="change-price">
+              <span class="price">${{plant.price}}</span>
+            </transition>
+          </div>
+          <div class="quantity">
+            <button @click="add(plant)" class="btn add"><i class="fas fa-chevron-up"></i></button>
+            <transition name="scale" mode="out-in">
+              <span :key="plant.quantity" class="number scale-animation">{{plant.quantity}}</span>
+            </transition>
+            <button @click="decrease(plant)" class="btn remove"><i class="fas fa-chevron-down"></i></button>
+          </div>
+      </div>
+    </transition-group>
+  </transition>
+  <div class="checkout">
+    <div class="total">Total: 
+      <transition name="scale" mode="out-in">
+        <span :key="sum" class="scale-animation">{{sum.toFixed(2)}}</span>
+      </transition>
+    </div>
+    <transition name="opacity" mode="out-in">
+      <button :disabled="!plants.length" v-if="!checkout" @click="checkoutCart">Checkout</button>
+    </transition>
+  </div>
+</div> 
+<a target="_blank" title="instagram/web__addict" href="https://www.instagram.com/web__addict/"><i class="fab fa-instagram"></i></a>
+    <!-- <script>
+        new Vue({
+  el: "#app",
+  data: {
+    plants: [
+      {
+        id: 1,
+        name: "Cactaceae Houseleek",
+        img:
+          "https://github.com/OlgaKoplik/CodePen/blob/master/plants/1.png?raw=true",
+        price: 3.19,
+        quantity: 1
+      },
+      {
+        id: 2,
+        name: "Echeveria purpusorum",
+        img:
+          "https://github.com/OlgaKoplik/CodePen/blob/master/plants/2.png?raw=true",
+        price: 2.99,
+        quantity: 1
+      },
+      {
+        id: 3,
+        name: "Echeveria agavoides",
+        img:
+          "https://github.com/OlgaKoplik/CodePen/blob/master/plants/3.png?raw=true",
+        price: 3.39,
+        quantity: 1
+      }
+    ],
+    checkout: false
+  },
+  computed: {
+    sum: function () {
+      return this.plants.reduce((sum, plant) => {
+        return sum + plant.price * plant.quantity;
+      }, 0);
+    }
+  },
+  methods: {
+    add(plant) {
+      plant.quantity += 1;
+    },
+    decrease(plant) {
+      if (plant.quantity > 1) {
+        plant.quantity -= 1;
+      } else {
+        this.remove(plant.id);
+      }
+    },
+    remove(plantIDToRemove) {
+      this.plants = this.plants.filter((plant) => {
+        return plant.id !== plantIDToRemove;
+      });
+    },
+    checkoutCart() {
+      this.checkout = !this.checkout;
+    }
+  }
+});
+
+    </script> -->
+</body>
+</html>
